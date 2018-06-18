@@ -1,0 +1,40 @@
+【问题1】module 'pip' has no attribute 'main'
+修改pycharm脚本：[pycharm安装路径]\helpers\packaging_tool.py
+原内容：
+def do_install(pkgs):
+    try:
+        import pip
+    except ImportError:
+        error_no_pip()
+    return pip.main(['install'] + pkgs)
+
+
+def do_uninstall(pkgs):
+    try:
+        import pip
+    except ImportError:
+        error_no_pip()
+    return pip.main(['uninstall', '-y'] + pkgs)
+
+
+修改后：
+def do_install(pkgs):
+    try:
+        try:
+            from pip._internal import main
+        except Exception:
+            from pip import main
+    except ImportError:
+        error_no_pip()
+    return main(['install'] + pkgs)
+
+
+def do_uninstall(pkgs):
+    try:
+        try:
+            from pip._internal import main
+        except Exception:
+            from pip import main
+    except ImportError:
+        error_no_pip()
+    return main(['uninstall', '-y'] + pkgs)

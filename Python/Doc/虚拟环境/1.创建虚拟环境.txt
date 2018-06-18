@@ -1,0 +1,24 @@
+安装虚拟环境
+    pip install virtualenv
+
+创建新的虚拟环境
+    virtualenv [virtualenv-name]
+    例：
+    mkdir C:\Users\star\VirtualEnv
+    cd C:\Users\star\VirtualEnv
+    virtualenv flask-env
+
+激活虚拟环境
+    ..\Scripts\activate
+    例：
+    C:\Users\star\VirtualEnv\flask-env\Scripts\activate
+    回显：(falsk-env) [PATH]
+    
+结束虚拟环境
+    ..\Scripts\deactivate.bat
+    例：
+    C:\Users\star\VirtualEnv\flask-env\Scripts>deactivate.bat
+    
+在虚拟环境中安装模块
+    例：pip install flask
+    
